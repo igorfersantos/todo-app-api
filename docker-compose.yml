@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+  todoapp-db:
+    image: postgres
+    container_name: todo-app-db
+    restart: always
+    environment:
+      - POSTGRES_DB=todo-app
+      - POSTGRES_USER=todo-app
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 54321:5432
+
+  todo-app-api:
+    depends_on:
+      - todoapp-db
+    build: .
+    container_name: todo-app-api
+    expose:
+      - "8081"
+    ports:
+      - 8081:8081
