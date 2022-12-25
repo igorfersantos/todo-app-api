@@ -6,8 +6,8 @@ RUN gradle build -x test --no-daemon
 EXPOSE 8081
 
 ENV JAVA_OPTS "${JAVA_OPTS} \
- -Xms2048m\
- -Xmx10248m\
+ -Xms10248m\
+ -Xmx10248m
 "
 
 CMD ["gradle", "bootRun"]
