@@ -34,6 +34,10 @@ tasks.withType(KotlinCompile) {
 	}
 }
 
+bootRun {
+	jvmArgs = ["-Dhttp.proxyHost=xxxxxx", "-Dhttp.proxyPort=xxxxxx"]
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
